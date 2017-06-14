@@ -4,13 +4,12 @@
  */
 package MyController;
 
-import javax.servlet.http.HttpServletRequest;
-
+import MyService.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import MyService.UserService;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * <p>
@@ -43,10 +42,8 @@ public class HelloCtroller {
 	
 	@RequestMapping("/hello")
 	public String Hello(HttpServletRequest request) {
-		if (userfacade.getUser("admin", "admin")) {
-			System.out.print("successfully");
-		}
-		return "/main/index.html";
+
+		return "/main/login.html";
 	}
 
 }
