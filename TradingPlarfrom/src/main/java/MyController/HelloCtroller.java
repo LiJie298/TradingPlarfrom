@@ -35,9 +35,9 @@ public class HelloCtroller {
 
 	@RequestMapping("/login")
 	public String Login(HttpServletRequest request) {
-		if (userfacade.getUser("admin", "admin")) {
-			System.out.print("successfully");
-		}
+//		if (userfacade.getUser("admin", "admin")) {
+//			System.out.print("successfully");
+//		}
 		return "/main/login.html";
 	}
 	

@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -30,7 +32,8 @@ public class UserService extends BaseService {
 //		entityManager.find(UserMain.class, arg1)
 //		String Sql = "select u from UserMain u where u.userName = '"+userName+"' and u.userPwd ='"+passWord+"'";
 		String Sql = "select u from UserMain u where u.userName = '"+userName+"' and u.userPwd ='"+passWord+"'";
-		List<UserMain> userList= entityManager.createQuery(Sql,UserMain.class).getResultList();
+		Session session = HibernateSessionFactory.getSession();
+		List<UserMain> userList= (List<UserMain>) session.createQuery(Sql);
 		if (userList.size()>0) {
 			isSuccessfully = true;
 		}
